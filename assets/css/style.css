@@ -1,24 +1,70 @@
 @import url("base.css");
 @import url("utilities.css");
 
-/* bread crumb  */
-.breadcrumb {
-  --bs-breadcrumb-divider: ">";
+/* ================= Header Section ================= */
+.header-section {
+  background: var(--white);
+  padding: 0;
+}
 
-  .breadcrumb-item + .breadcrumb-item::before {
-    color: var(--green);
-  }
-  .breadcrumb-item {
-    font-size: clamp(12.4px, 1vw, 14px) !important;
-    a {
-      color: var(--green);
-      font-weight: 400;
-      font-size: clamp(12.4px, 1vw, 14px) !important;
-    }
-    &.active {
-      color: var(--green-dark);
-    }
-  }
+.header-top {
+  padding: 12px 0;
+}
+
+.header-bottom {
+  padding: 15px 0;
+}
+
+.header-divider {
+  margin: 0;
+  border-color: #e0e0e0;
+  opacity: 1;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  color: var(--primary);
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #8b4a8d;
+}
+
+/* Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-link {
+  color: var(--heading-font);
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-separator {
+  color: var(--heading-font);
+  font-size: 16px;
+}
+
+/* Cart Icon */
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 /* hero section  */
