@@ -1,3 +1,13 @@
+/* ================= Satoshi Variable Font ================= */
+@font-face {
+  font-family: "Satoshi Variable";
+  src: url("../fonts/Satoshi-Variable.woff2") format("woff2"),
+    url("../fonts/Satoshi-Variable.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ================= Color Variables ================= */
 :root {
   --heading-font: #393a3a;
