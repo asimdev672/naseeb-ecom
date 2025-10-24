@@ -1,0 +1,67 @@
+/* ================= Color Variables ================= */
+:root {
+  --heading-font: #393a3a;
+  --muted: #6e6e6e;
+  --promo: #dd5252;
+  --white: #ffffff;
+  --primary: #5b265d;
+  --gray: #fafafa;
+}
+
+/* ================= Global Reset & Base ================= */
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  scroll-snap-type: y mandatory !important;
+  scroll-behavior: smooth !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth !important;
+}
+
+hr {
+  color: var(--light-gray);
+  opacity: 1;
+}
+
+a {
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 40px);
+} /* ~40px max */
+h2 {
+  font-size: clamp(24px, 4vw, 32px);
+} /* ~32px max */
+h3 {
+  font-size: clamp(20px, 3.5vw, 28px);
+} /* ~28px max */
+h4 {
+  font-size: clamp(18px, 3vw, 24px);
+} /* ~24px max */
+h5 {
+  font-size: clamp(16px, 2.5vw, 20px);
+} /* ~20px max */
+h6 {
+  font-size: clamp(14px, 2vw, 16px);
+} /* ~16px max */
+/* Headings & paragraph text colors */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-font);
+}
+p {
+  color: var(--muted);
+}
