@@ -1,74 +1,4 @@
-/* ============ Satoshi Font Family Setup ============ */
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-LightItalic.woff") format("woff");
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-Italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-MediumItalic.woff") format("woff");
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-BoldItalic.woff") format("woff");
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-Black.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-BlackItalic.woff") format("woff");
-  font-weight: 900;
-  font-style: italic;
-}
-
+/* ================= Font Weight Utilities ================= */
 .fw-900 {
   font-weight: 900 !important;
 }
@@ -213,12 +143,41 @@
 .text-primary-custom {
   color: var(--primary) !important;
 }
+.text-secondary-custom {
+  color: var(--secondary) !important;
+}
+.text-danger-custom {
+  color: var(--danger) !important;
+}
 
 .text-promo {
   color: var(--promo) !important;
 }
 .text-gray {
   color: var(--gray) !important;
+}
+
+.badge-primary {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+}
+.badge-danger {
+  background-color: var(--danger) !important;
+  color: var(--white) !important;
+}
+.badge-secondary {
+  background-color: var(--secondary) !important;
+  color: var(--white) !important;
+}
+
+/* ================= Satoshi Variable Font ================= */
+.font-satoshi {
+  font-family: "Satoshi Variable", "Inter", sans-serif !important;
+}
+
+/* Alternative fallback using Inter (similar to Satoshi) */
+.font-satoshi-fallback {
+  font-family: "Inter", sans-serif !important;
 }
 
 .btn-gradient {
@@ -229,6 +188,16 @@
   font-size: 12px;
   padding: 12px 20px;
   border-radius: 50px;
+}
+
+.btn-gradient-outline {
+  background: var(--gray);
+  padding: 5px 20px;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 8px;
+  color: var(--primary);
+  border: 0.5px solid var(--primary);
   display: inline-block;
   transition: 0.3s ease;
 }
@@ -240,16 +209,6 @@
 .btn-gradient:active {
   filter: brightness(0.9);
   transform: translateY(0);
-}
-
-/* ================= Satoshi Variable Font ================= */
-.font-satoshi {
-  font-family: "Satoshi Variable", "Inter", sans-serif !important;
-}
-
-/* Alternative fallback using Inter (similar to Satoshi) */
-.font-satoshi-fallback {
-  font-family: "Inter", sans-serif !important;
 }
 
 /* Promo Button */
@@ -266,4 +225,13 @@
 
 .btn-promo:hover {
   background: #c44545;
+}
+
+.vertical-line {
+  width: 1px;
+  background-color: var(--Stroke-Color, #00000040);
+}
+
+.mb-custom {
+  margin-bottom: 7rem;
 }

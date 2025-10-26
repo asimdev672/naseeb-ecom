@@ -7,7 +7,76 @@
   font-style: normal;
   font-display: swap;
 }
+/* ============ Satoshi Font Family Setup ============ */
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+}
 /* ================= Color Variables ================= */
 :root {
   --heading-font: #393a3a;
@@ -15,6 +84,8 @@
   --promo: #dd5252;
   --white: #ffffff;
   --primary: #5b265d;
+  --secondary: #2da5f3;
+  --danger: #ee5858;
   --gray: #fafafa;
 }
 
@@ -26,6 +97,7 @@ body {
   scroll-behavior: smooth !important;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
+  background-color: var(--white);
 }
 
 * {
@@ -36,8 +108,12 @@ body {
 }
 
 hr {
-  color: var(--light-gray);
+  color: #2630381a;
   opacity: 1;
+}
+
+.container {
+  padding: 0 !important;
 }
 
 a {
@@ -71,6 +147,8 @@ h4,
 h5,
 h6 {
   color: var(--heading-font);
+  font-weight: 700;
+  font-family: "Satoshi Variable", "Inter", sans-serif !important;
 }
 p {
   color: var(--muted);
