@@ -115,6 +115,9 @@ hr {
 .container {
   padding: 0 !important;
 }
+.col {
+  margin-bottom: 2rem !important;
+}
 
 a {
   text-decoration: none !important;
