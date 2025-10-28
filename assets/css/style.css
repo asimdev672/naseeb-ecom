@@ -4,6 +4,7 @@
 @import url("footer.css");
 @import url("helper.css");
 @import url("stepper.css");
+@import url("form.css");
 
 /* ================= Header Section ================= */
 /* ===== HEADER SECTION ===== */
@@ -398,4 +399,17 @@
   .check-icon {
     visibility: visible;
   }
+}
+
+.section-header {
+  font-weight: 600;
+  font-size: 24px;
+  background: #e4e4e4;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.total-cost-section {
+  font-weight: bold;
+  margin-top: 30px;
 }
