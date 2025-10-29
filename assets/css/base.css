@@ -80,6 +80,7 @@
 /* ================= Color Variables ================= */
 :root {
   --heading-font: #393a3a;
+  --body-font: #475156;
   --muted: #6e6e6e;
   --promo: #dd5252;
   --white: #ffffff;
@@ -151,7 +152,7 @@ h5,
 h6 {
   color: var(--heading-font);
   font-weight: 700;
-  font-family: "Satoshi Variable", "Inter", sans-serif !important;
+  font-family: "Satoshi Variable", "Inter", sans-serif;
 }
 p {
   color: var(--muted);

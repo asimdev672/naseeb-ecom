@@ -179,6 +179,9 @@
 .font-satoshi-fallback {
   font-family: "Inter", sans-serif !important;
 }
+.font-sans {
+  font-family: "Public Sans", sans-serif !important;
+}
 
 .btn-gradient {
   background: linear-gradient(90deg, #684471 0%, #a382a6 46.63%, #684471 100%);
@@ -187,7 +190,7 @@
   font-weight: 600;
   font-size: 12px;
   padding: 12px 20px;
-  border-radius: 50px;
+  border-radius: 7px;
 }
 
 .btn-gradient-outline {
