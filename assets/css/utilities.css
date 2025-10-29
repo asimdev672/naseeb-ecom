@@ -169,6 +169,10 @@
   background-color: var(--secondary) !important;
   color: var(--white) !important;
 }
+.badge-warning {
+  background-color: #efd33d !important;
+  color: var(--white) !important;
+}
 
 /* ================= Satoshi Variable Font ================= */
 .font-satoshi {
