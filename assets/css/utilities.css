@@ -130,6 +130,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.flex-1 {
+  flex: 1;
+}
 
 /* ================= Text Color Utilities ================= */
 .text-heading {
@@ -155,6 +158,9 @@
 }
 .text-gray {
   color: var(--gray) !important;
+}
+.text-gray-600 {
+  color: var(--gray-600) !important;
 }
 
 .badge-primary {
@@ -241,4 +247,19 @@
 
 .mb-custom {
   margin-bottom: 7rem;
+}
+.radius-1 {
+  border-radius: 1px;
+}
+.radius-2 {
+  border-radius: 2px;
+}
+.radius-3 {
+  border-radius: 3px;
+}
+.radius-4 {
+  border-radius: 4px;
+}
+.radius-5 {
+  border-radius: 5px;
 }

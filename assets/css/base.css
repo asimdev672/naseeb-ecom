@@ -88,6 +88,7 @@
   --secondary: #2da5f3;
   --danger: #ee5858;
   --gray: #fafafa;
+  --gray-600: #5f6c72;
 }
 
 /* ================= Global Reset & Base ================= */
@@ -116,9 +117,9 @@ hr {
 .container {
   padding: 0 !important;
 }
-.col {
+/* .col {
   margin-bottom: 2rem !important;
-}
+} */
 
 a {
   text-decoration: none !important;
