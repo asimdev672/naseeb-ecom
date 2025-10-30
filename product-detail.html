@@ -256,22 +256,27 @@
                   class="img-fluid rounded"
                 />
               </div>
-              <div
-                class="pd-thumbs d-flex align-items-center gap-3 mt-3 overflow-auto"
-              >
+              <div class="pd-thumbs mt-3 position-relative">
                 <button
-                  class="btn btn-outline-primary rounded-circle p-0 pd-nav"
+                  class="btn rounded-circle p-0 pd-nav pd-nav-prev"
                   data-dir="prev"
                   aria-label="Previous"
                   style="width: 40px; height: 40px"
                 >
-                  <i class="bi bi-chevron-left"></i>
+                  <i class="bi bi-arrow-left"></i>
                 </button>
-                <div class="d-flex gap-2 flex-nowrap pd-thumbs-track">
+                <div
+                  class="d-flex gap-2 px-3 flex-nowrap pd-thumbs-track overflow-auto"
+                >
                   <img
                     class="pd-thumb active"
                     src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop"
                     alt="thumb-1"
+                  />
+                  <img
+                    class="pd-thumb"
+                    src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=800&auto=format&fit=crop"
+                    alt="thumb-2"
                   />
                   <img
                     class="pd-thumb"
@@ -295,12 +300,12 @@
                   />
                 </div>
                 <button
-                  class="btn btn-outline-primary rounded-circle p-0 pd-nav"
+                  class="btn rounded-circle p-0 pd-nav pd-nav-next"
                   data-dir="next"
                   aria-label="Next"
                   style="width: 40px; height: 40px"
                 >
-                  <i class="bi bi-chevron-right"></i>
+                  <i class="bi bi-arrow-right"></i>
                 </button>
               </div>
             </div>
@@ -490,84 +495,423 @@
     </section>
     <!-- End:: Product Detail -->
 
-    <footer class="footer pt-5 pb-4">
-      <div class="container">
-        <div class="row g-4">
-          <!-- Left: Logo + Socials -->
-          <div class="col-lg-3 left-divider">
-            <div class="d-flex flex-column align-items-center gap-3">
-              <div class="logo-box"></div>
-              <div class="social-icons">
-                <a href="#" class="social-icon"
-                  ><img src="./assets/img/facebook.svg" alt=""
-                /></a>
-                <a href="#" class="social-icon"
-                  ><img src="./assets/img/instagram.svg" alt=""
-                /></a>
-                <a href="#" class="social-icon"
-                  ><img src="./assets/img/tiktok.svg" alt=""
-                /></a>
-                <a href="#" class="social-icon"
-                  ><img src="./assets/img/youtube.svg" alt=""
-                /></a>
+    <!-- Begin:: shipping_information -->
+    <section class="shipping_information container my-5">
+      <ul
+        class="flex-stack nav nav-tabs border-0 mb-4 pt-3"
+        id="descTab"
+        role="tablist"
+      >
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="desc-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#descPane"
+            type="button"
+            role="tab"
+            aria-controls="descPane"
+            aria-selected="true"
+          >
+            DESCRIPTION
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="info-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#infoPane"
+            type="button"
+            role="tab"
+            aria-controls="infoPane"
+            aria-selected="false"
+          >
+            ADDITIONAL INFORMATION
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="spec-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#specPane"
+            type="button"
+            role="tab"
+            aria-controls="specPane"
+            aria-selected="false"
+          >
+            SPECIFICATION
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="review-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#reviewPane"
+            type="button"
+            role="tab"
+            aria-controls="reviewPane"
+            aria-selected="false"
+          >
+            REVIEW
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content bg-white p-4 rounded-3">
+        <div
+          class="tab-pane fade show active"
+          id="descPane"
+          role="tabpanel"
+          aria-labelledby="desc-tab"
+        >
+          <div class="row g-4 align-items-start">
+            <div class="col-md-6 col-lg-5">
+              <h6 class="font-sans fw-600 text-heading fs-16 mb-3">
+                Description
+              </h6>
+              <p class="mb-3 fw-400 fs-14 text-muted-custom">
+                The most powerful MacBook Pro ever is here. With the
+                blazing-fast M1 Pro or M1 Max chip—the first Apple silicon
+                designed for pros—you get groundbreaking performance and amazing
+                battery life. Add stunning Liquid Retina XDR display, best
+                camera and audio ever in a Mac, and all the ports you need. The
+                first notebook of its kind, this MacBook Pro is a beast. M1 Pro
+                takes the exceptional performance of the M1 architecture to a
+                whole new level for pro users.
+              </p>
+              <p class="mb-2 fw-400 fs-14 text-muted-custom">
+                Even the most ambitious projects are easily handled with up to
+                10 CPU cores, up to 16 GPU cores, a 16-core Neural Engine, and
+                dedicated encode and decode media engines that support H.264,
+                HEVC, and ProRes codecs.
+              </p>
+            </div>
+            <div class="col-md-3 col-lg-4 border-start">
+              <div class="ps-md-4">
+                <h6 class="font-sans fw-600 text-heading fs-16 mb-3">
+                  Feature
+                </h6>
+                <ul class="list-unstyled mb-0">
+                  <li
+                    class="mb-2 d-flex align-items-center gap-2 text-heading fs-14 fw-400"
+                  >
+                    <i class="bi bi-award fs-5 text-primary-custom"></i>Free 1
+                    Year Warranty
+                  </li>
+                  <li
+                    class="mb-2 d-flex align-items-center gap-2 text-heading fs-14 fw-400"
+                  >
+                    <i class="bi bi-truck fs-5 text-primary-custom"></i>Free
+                    Shipping &amp; Fasted Delivery
+                  </li>
+                  <li
+                    class="mb-2 d-flex align-items-center gap-2 text-heading fs-14 fw-400"
+                  >
+                    <i class="bi bi-shield-check fs-5 text-primary-custom"></i
+                    >100% Money-back guarantee
+                  </li>
+                  <li
+                    class="mb-2 d-flex align-items-center gap-2 text-heading fs-14 fw-400"
+                  >
+                    <i class="bi bi-headset fs-5 text-primary-custom"></i>24/7
+                    Customer support
+                  </li>
+                  <li
+                    class="d-flex align-items-center gap-2 text-heading fs-14 fw-400"
+                  >
+                    <i class="bi bi-lock fs-5 text-primary-custom"></i>Secure
+                    payment method
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
-
-          <!-- Company -->
-          <div class="col-6 col-md-4 col-lg-3 ps-5">
-            <h5 class="title mb-3">Company</h5>
-            <nav class="nav flex-column">
-              <a class="nav-link" href="#">Home</a>
-              <a class="nav-link" href="#">About Us</a>
-              <a class="nav-link" href="#">Careers</a>
-            </nav>
-          </div>
-
-          <!-- Services -->
-          <div class="col-6 col-md-4 col-lg-3">
-            <h5 class="title mb-3">Our Services</h5>
-            <nav class="nav flex-column">
-              <a class="nav-link" href="#">Phone Repairs</a>
-              <a class="nav-link" href="#">Laptop Repairs</a>
-              <a class="nav-link" href="#">Tablet Repairs</a>
-              <a class="nav-link" href="#">Console Repairs</a>
-              <a class="nav-link" href="#">Camera Fix</a>
-              <a class="nav-link" href="#">Software Optimization</a>
-            </nav>
-          </div>
-
-          <!-- Newsletter -->
-          <div class="col-md-8 col-lg-3">
-            <h5 class="title mb-3">Newsletter</h5>
-            <p class="fs-18 fw-400 mb-3">
-              Signup our newsletter to get update information, news, insight or
-              promotions.
-            </p>
-
-            <div class="row g-2 my-3">
-              <div class="col-6">
-                <input type="text" class="custom-input" placeholder="Name" />
-              </div>
-              <div class="col-6">
-                <input type="email" class="custom-input" placeholder="Email" />
-              </div>
-              <div class="col-12">
-                <button class="btn-gradient rounded w-100">
-                  Subscribe to Newsletter
-                </button>
+            <div class="col-md-3 border-start">
+              <div class="ps-md-4">
+                <h6 class="font-sans fw-600 text-heading fs-16 mb-3">
+                  Shipping Information
+                </h6>
+                <ul class="list-unstyled mb-0 text-muted small">
+                  <li class="text-muted-custom fs-14 fw-400 mb-3">
+                    <span class="fw-500 text-heading fs-14">Courier:</span> 2-4
+                    days, free shipping
+                  </li>
+                  <li class="text-muted-custom fs-14 fw-400 mb-3">
+                    <span class="fw-500 text-heading fs-14"
+                      >Local Shipping:</span
+                    >
+                    up to one week, $19.00
+                  </li>
+                  <li class="text-muted-custom fs-14 fw-400 mb-3">
+                    <span class="fw-500 text-heading fs-14"
+                      >UPS Ground Shipping:</span
+                    >
+                    4-6 days, $29.00
+                  </li>
+                  <li class="text-muted-custom fs-14 fw-400">
+                    <span class="fw-500 text-heading fs-14"
+                      >Unishop Global Export:</span
+                    >
+                    3-4 days, $39.00
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- bottom line -->
-        <hr class="mt-5 mb-3" />
-        <div class="d-flex justify-content-end">
-          <small class="text-muted">@2025 Copyright Reserved</small>
+        <div
+          class="tab-pane fade"
+          id="infoPane"
+          role="tabpanel"
+          aria-labelledby="info-tab"
+        >
+          <!-- Placeholder -->
+        </div>
+        <div
+          class="tab-pane fade"
+          id="specPane"
+          role="tabpanel"
+          aria-labelledby="spec-tab"
+        >
+          <!-- Placeholder -->
+        </div>
+        <div
+          class="tab-pane fade"
+          id="reviewPane"
+          role="tabpanel"
+          aria-labelledby="review-tab"
+        >
+          <!-- Placeholder -->
         </div>
       </div>
-    </footer>
+    </section>
+    <!-- End:: shipping_information -->
+
+    <section class="container">
+      <div class="row row-cols-md-3 row-cols-2">
+        <div class="col">
+          <h2 class="font-sans fw-600 fs-16 text-heading my-3">
+            RELATED PRODUCT
+          </h2>
+          <div class="row row-cols-1">
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h2 class="font-sans fw-600 fs-16 text-heading my-3">
+            APPLE PRODUCT
+          </h2>
+          <div class="row row-cols-1">
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h2 class="font-sans fw-600 fs-16 text-heading my-3">
+            FEATURED PRODUCTS
+          </h2>
+          <div class="row row-cols-1">
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div>
+                <div class="product-card-s1">
+                  <div class="d-flex align-items-start gap-3">
+                    <img
+                      class="product-img"
+                      src="./assets/img/phone-1.svg"
+                      alt="Product image"
+                    />
+
+                    <div class="flex-grow-1">
+                      <h6 class="product-title-s1">
+                        Bose Sport Earbuds - Wireless Earphones - Bluetooth In
+                        Ear Headphones for Workouts and Running
+                      </h6>
+
+                      <div class="prdoduct-price-s1">$1,500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Bootstrap Bundle -->
     <script>
       (function () {
