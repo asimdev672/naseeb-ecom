@@ -1145,152 +1145,493 @@
   }
 }
 
-.order-card {
-  border: 1px solid #e4e7e9;
-  border-radius: 4px;
+/* ===== Track Order Summary + Activity ===== */
+.track-record-section {
+  display: none;
+  .track-record {
+    font-weight: 400;
+    border: 1px solid #e4e7e9;
+    padding: 1rem;
 
-  .order-header {
-    padding: 1.1rem 1.25rem;
-    border-bottom: 1px solid #e4e7e9;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem;
+    .order-summary-card {
+      border: 1px solid var(--primary);
+      background: #5b265d24;
+      border-radius: 4px;
+      padding: 1.3rem;
 
-    .meta {
-      .id {
-        font-weight: 600;
-        font-size: 1.15rem;
+      .racking-number {
+        font-weight: 400;
+        font-size: 20px;
+        color: #191c1f;
       }
-      .sub {
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-    }
 
-    .price {
-      align-self: center;
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: #d04a86;
-      background: var(--primary);
-      border: 1px solid #e4e7e9;
-      padding: 0.5rem 1rem;
-      border-radius: 0.75rem;
-    }
-  }
-
-  .expected {
-    padding: 1rem 1.25rem 0.25rem;
-    small {
-      color: var(--text-muted);
-    }
-    strong {
-      font-weight: 700;
-    }
-  }
-
-  /* Stepper */
-  .track-wrap {
-    padding: 0.75rem 1.25rem 1.25rem;
-  }
-  .progress-track {
-    position: relative;
-    margin: 0.5rem 0 1rem;
-    height: 10px;
-    background: var(--track);
-    border-radius: 999px;
-
-    .bar {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 35%;
-      background: var(--brand);
-      border-radius: 999px;
-    }
-
-    .step {
-      position: absolute;
-      top: 50%;
-      translate: 0 -50%;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 3px solid var(--brand);
-      background: var(--step-bg);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-
-      .done {
-        background: var(--brand);
-        color: #fff;
-      }
-      .current {
-        outline: 6px solid #ead0e7;
+      .order-amount {
+        color: var(--promo);
+        font-weight: 500;
+        font-size: 28px;
       }
     }
-  }
 
-  .stage-labels {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
-    text-align: center;
-    color: var(--text-muted);
-    .stage {
-      display: grid;
-      gap: 0.35rem;
-      justify-items: center;
-    }
-    .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: #fff;
-      border: 1px solid #eee;
-    }
-    .title {
-      font-size: 0.92rem;
-    }
-  }
+    .order-tracker {
+      --steps: 4; /* total number of steps */
+      --completed: 2; /* last completed step index (1..--steps) */
+      --circle: 26px; /* circle size, used for spacing if needed */
+      --track-bg: #fdeae2;
+      --primary: #5b265d;
 
-  /* Activity list */
-  .activity {
-    border-top: 1px solid #eee;
-    padding: 1rem 1.25rem 1.25rem;
-    h6 {
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-    .item {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 0.75rem;
-      padding: 0.6rem 0;
-      align-items: flex-start;
-      .badge {
-        width: 44px;
-        height: 44px;
+      .progress-track {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* The base (unfilled) line, trimmed so it doesn't extend before 1st or after last icon */
+      .progress-line {
+        position: absolute;
+        top: 11px;
+
+        left: calc(50% / (var(--steps)));
+        right: calc(50% / (var(--steps)));
+        height: 6px;
+        background-color: var(--track-bg);
         border-radius: 10px;
-        display: grid;
-        place-items: center;
-        font-size: 1.2rem;
-        background: #f7f7f7;
-        border: 1px solid #ececec;
+        z-index: 1;
+        overflow: hidden;
       }
-      .body {
-        .text {
-          line-height: 1.35;
-        }
-        .time {
-          color: var(--text-muted);
-          font-size: 0.9rem;
-        }
+
+      /* Filled portion of the line (from step 1 center up to last completed center) */
+      .progress-line::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 6px;
+        /* fill % = (completed-1)/(steps-1) */
+        width: calc(
+          clamp(0, (var(--completed) - 1) / (var(--steps) - 1), 1) * 100%
+        );
+        background-color: var(--primary);
+        border-radius: 10px;
+        transition: width 0.4s ease;
+        z-index: 2;
+      }
+
+      /* Steps */
+      .order-step {
+        flex: 1;
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      /* Circles */
+      .order-circle {
+        width: 26px;
+        height: 26px;
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        background-color: #fff;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      .order-circle .check-icon {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+      }
+
+      /* Completed & active states */
+      .order-step.completed .order-circle,
+      .order-step.active .order-circle {
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+      .order-step.completed .order-circle .check-icon {
+        display: block;
+      }
+
+      .order-step .icon svg {
+        width: 35px;
+        height: 35px;
+        opacity: 0.3;
+        stroke: #999;
+        fill: transparent;
+        transition: all 0.3s ease;
+        margin-top: 25px;
+      }
+      .order-step.completed .icon svg {
+        opacity: 1;
+        stroke: var(--primary);
+        fill: rgba(3, 194, 126, 0.1);
+      }
+      .order-step.active .icon svg {
+        opacity: 1;
+        stroke: var(--primary);
+        fill: rgba(90, 12, 86, 0.1);
+      }
+      .order-step:not(.active):not(.completed) .icon svg {
+        opacity: 0.4;
+        stroke: #bbb;
+        fill: rgba(0, 0, 0, 0.05);
+      }
+
+      /* Labels */
+      .order-step p {
+        margin-top: 10px;
+        font-weight: 500;
+        font-size: 15px;
+        color: #999;
+        transition: all 0.3s ease;
+      }
+      .order-step.completed p,
+      .order-step.active p {
+        color: #222;
       }
     }
+
+    .order-activity {
+    }
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+    }
+    .activity-item:last-child {
+      border-bottom: 0;
+    }
+    .icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* soft background helpers for badges */
+    .bg-success-100 {
+      background: #e8f7ec;
+    }
+    .bg-primary-100 {
+      background: #eaf6fe;
+    }
+    .activity-head {
+      color: #191c1f;
+      font-weight: 400;
+      font-size: 14px;
+    }
+    .activity-date {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+}
+
+.product-table {
+  border: 1px solid #e4e7e9;
+  border-radius: 6px;
+  padding: 1.5rem 0;
+  background: #fff;
+
+  .table {
+    margin-bottom: 0;
+
+    thead {
+      border-top: 1px solid #e4e7e9;
+      border-bottom: 1px solid #e4e7e9;
+      background: #f2f4f5;
+    }
+
+    th {
+      font-weight: 600;
+      color: #5f6c72;
+      font-size: 12px;
+      text-align: center;
+      padding: 12px;
+      white-space: nowrap;
+    }
+
+    td {
+      font-weight: 400;
+      font-size: 14px;
+      color: #475156;
+      text-align: center;
+      vertical-align: middle;
+      padding: 18px 12px;
+    }
+
+    .product-img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+    }
+
+    .original-price {
+      font-weight: 600;
+      font-size: 14px;
+      color: #222;
+    }
+
+    .in-stock {
+      color: #2db224;
+      font-weight: 500;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .out-stock {
+      color: #e63946;
+      font-weight: 500;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .product-quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e4e7e9;
+      border-radius: 3px;
+      width: 82px;
+      height: 40px;
+      background: #fff;
+      gap: 12px;
+
+      button {
+        border: none;
+        background: none;
+        font-size: 18px;
+        line-height: 1;
+        color: #6c757d;
+        padding: 0;
+        cursor: pointer;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #000;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+
+      .quantity-value {
+        font-weight: 400;
+        font-size: 14px;
+        color: var(--muted);
+        min-width: 18px;
+        text-align: center;
+      }
+    }
+  }
+
+  .btn-link {
+    color: var(--muted);
+
+    &:hover {
+      color: #6c757d;
+    }
+  }
+}
+.product-table {
+  .table > :not(caption) > * > * {
+    border-bottom: none !important;
+  }
+}
+
+.product-table .table > :not(caption) > * > * {
+  background-color: unset;
+}
+
+.card-summary {
+  .card-total {
+    border: 1px solid #e4e7e9;
+    border-radius: 4px;
+    padding: 1.5rem;
+    background: #fff;
+  }
+
+  .card-total {
+    padding: 1.5rem;
+    border: 1px solid #e4e7e9;
+
+    .totals-list li {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+  }
+
+  .coupon-box {
+    border: 1px solid #e4e7e9;
+    border-radius: 4px;
+    background: #fff;
+
+    h5 {
+      padding: 1.5rem;
+      border-bottom: 1px solid #e4e7e9;
+    }
+    .coupon-form {
+      padding: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    .form-control {
+      border: 1px solid #e4e7e9;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--muted);
+
+      &::placeholder {
+        color: var(--muted);
+      }
+
+      &:focus {
+        border-color: var(--primary);
+        box-shadow: none;
+      }
+    }
+
+    .btn-danger {
+      background-color: var(--promo);
+      border: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 0;
+      border-radius: 2px;
+
+      &:hover {
+        background-color: #d62839;
+      }
+    }
+  }
+}
+
+.checkout-main {
+  .billing-form {
+    .form-label {
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--heading-font);
+      margin-bottom: 6px;
+
+      span {
+        color: #929fa5;
+      }
+    }
+    .form-input {
+      border: 1px solid #e4e7e9;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-weight: 400;
+      font-size: 14px;
+      color: #77878f;
+      width: 100%;
+
+      &::placeholder {
+        color: #77878f;
+      }
+
+      &:focus {
+        border-color: var(--primary);
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    .form-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #c9cfd2;
+      border-radius: 4px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      &:checked::after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+
+      &:hover {
+        border-color: var(--primary);
+      }
+    }
+  }
+}
+
+.payment-option {
+  border: 1px solid #e4e7e9;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .col {
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .border-end {
+    border-right: 1px solid #e4e7e9 !important;
+  }
+
+  .custom-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #c9cfd3;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    margin: 0 8px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .custom-radio:checked {
+    border-color: var(--primary);
+    background-color: var(--primary);
+  }
+
+  .custom-radio:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #fff; /* white inner dot */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
   }
 }
