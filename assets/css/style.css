@@ -457,7 +457,7 @@
 
 .section-header {
   font-weight: 600;
-  font-size: clamp(20px, 1.6vw, 24px);
+  font-size: clamp(18px, 1.6vw, 24px);
   background: #e4e4e4;
   padding: 10px;
   margin-bottom: 20px;

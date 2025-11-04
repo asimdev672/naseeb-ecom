@@ -21,6 +21,10 @@
   background-color: #d1d5db;
   z-index: 1;
   transition: background-color 0.3s ease;
+
+  @media (max-width: 468px) {
+    top: 15px;
+  }
 }
 
 /* Circle */
@@ -40,6 +44,15 @@
   position: relative;
   z-index: 2;
   transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 37px;
+    height: 37px;
+  }
+  @media (max-width: 468px) {
+    width: 27px;
+    height: 27px;
+  }
 }
 
 /* Label text */
@@ -50,6 +63,13 @@
   color: #4b5563;
   white-space: nowrap;
   transition: color 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media (max-width: 468px) {
+    font-size: 12px;
+  }
 }
 
 /* Active step */
