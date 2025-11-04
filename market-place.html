@@ -36,7 +36,7 @@
     <!-- Header Section Start -->
     <header class="header-section">
       <!-- Top Row -->
-      <div class="header-top">
+      <div class="header-top d-none d-md-block">
         <div class="container">
           <div class="d-flex align-items-center justify-content-between">
             <div>
@@ -75,25 +75,72 @@
       <div class="header-bottom">
         <div class="container">
           <div class="flex-between">
-            <div></div>
-            <div class="">
+            <div class="flex-center gap-2">
+              <!-- Hamburger Button (visible on mobile) -->
+              <button
+                class="navbar-toggler d-block d-lg-none"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu"
+                aria-controls="mobileMenu"
+              >
+                <i class="bi bi-list fs-4"></i>
+              </button>
+              <h6 class="mb-0">Mobile Repair</h6>
+            </div>
+
+            <!-- Normal nav for lg and up -->
+            <div class="d-none d-lg-block">
               <nav class="main-nav">
                 <a href="./about.html" class="nav-link">About Us</a>
                 <span class="nav-separator">></span>
                 <a href="./service.html" class="nav-link">Our Services</a>
                 <span class="nav-separator">></span>
-                <a href="#" class="nav-link">Marketplace</a>
+                <a href="./market-place.html" class="nav-link">Marketplace</a>
                 <span class="nav-separator">></span>
                 <a href="./join.html" class="nav-link">Join Us</a>
               </nav>
             </div>
+
             <div class="flex-center gap-3">
               <div class="cart-icon">
-                <img src="./assets/img/cart.svg" alt="" srcset="" />
+                <img src="./assets/img/cart.svg" alt="" />
               </div>
               <a href="./contact.html" class="btn-gradient">Contact Us</a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Offcanvas Drawer -->
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="mobileMenu"
+        aria-labelledby="mobileMenuLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="mobileMenuLabel">Mobile Repair</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <nav class="main-nav d-flex flex-column gap-3 h-100">
+            <a href="./about.html" class="nav-link">About Us</a>
+            <a href="./service.html" class="nav-link">Our Services</a>
+            <a href="./market-place.html" class="nav-link">Marketplace</a>
+            <a href="./join.html" class="nav-link">Join Us</a>
+            <div class="mt-auto">
+              <hr />
+              <a href="./contact.html" class="btn-gradient w-100 text-center"
+                >Contact Us</a
+              >
+            </div>
+          </nav>
         </div>
       </div>
     </header>
@@ -248,13 +295,32 @@
         <div
           class="d-flex flex-wrap align-items-center justify-content-between mb-3"
         >
-          <button
-            class="btn btn-light d-lg-none"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasFilters"
-          >
-            <i class="bi bi-sliders"></i> Filters
-          </button>
+          <div>
+            <button
+              class="btn btn-light d-lg-none"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasFilters"
+            >
+              <i class="bi bi-sliders"></i> Filters
+            </button>
+          </div>
+          <div class="sort-section flex-center gap-3 d-sm-none">
+            <div class="dropdown">
+              <button
+                class="btn dropdown-toggle sortby-btn"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Most Popular
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Mobiles</a></li>
+                <li><a class="dropdown-item" href="#">Laptops</a></li>
+                <li><a class="dropdown-item" href="#">Accessories</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <!-- 🔹 Content Layout -->
@@ -704,11 +770,11 @@
           <main class="col-lg-9">
             <div class="h-100">
               <header class="flex-between">
-                <div class="search">
+                <div class="search w-100 w-sm-50">
                   <input type="text" placeholder="Search for anything..." />
                   <i class="bi bi-search"></i>
                 </div>
-                <div class="sort-section flex-center gap-3">
+                <div class="sort-section flex-center gap-3 d-none d-sm-flex">
                   <label for="">Sort by:</label>
                   <div class="dropdown">
                     <button
@@ -730,12 +796,14 @@
               <!-- Begin::filter section  -->
               <section class="filter-section my-3">
                 <div
-                  class="d-flex align-items-center justify-content-between px-3 py-2"
+                  class="d-flex align-items-center justify-content-between py-2"
                 >
                   <div class="d-flex align-items-center flex-wrap gap-2">
-                    <span class="text-secondary me-1">Active Filters:</span>
+                    <span class="text-secondary me-1 fs-14 fw-400"
+                      >Active Filters:</span
+                    >
 
-                    <span class="d-inline-flex align-items-center">
+                    <span class="d-inline-flex align-items-center fs-14 fw-400">
                       Electronics Devices
                       <button
                         type="button"
@@ -744,7 +812,7 @@
                       ></button>
                     </span>
 
-                    <span class="d-inline-flex align-items-center">
+                    <span class="d-inline-flex align-items-center fs-14 fw-400">
                       5 Star Rating
                       <button
                         type="button"
@@ -754,7 +822,7 @@
                     </span>
                   </div>
 
-                  <div class="text-heading">
+                  <div class="text-heading fs-14 fw-400">
                     <span class="fw-600 text-dark">65,867</span> Results found.
                   </div>
                 </div>
@@ -762,7 +830,7 @@
               <!-- End::filter section  -->
 
               <div
-                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-2"
+                class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-3"
                 id="productGrid"
               ></div>
               <nav

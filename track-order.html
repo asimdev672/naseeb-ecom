@@ -36,7 +36,7 @@
     <!-- Header Section Start -->
     <header class="header-section">
       <!-- Top Row -->
-      <div class="header-top">
+      <div class="header-top d-none d-md-block">
         <div class="container">
           <div class="d-flex align-items-center justify-content-between">
             <div>
@@ -75,25 +75,72 @@
       <div class="header-bottom">
         <div class="container">
           <div class="flex-between">
-            <div></div>
-            <div class="">
+            <div class="flex-center gap-2">
+              <!-- Hamburger Button (visible on mobile) -->
+              <button
+                class="navbar-toggler d-block d-lg-none"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu"
+                aria-controls="mobileMenu"
+              >
+                <i class="bi bi-list fs-4"></i>
+              </button>
+              <h6 class="mb-0">Mobile Repair</h6>
+            </div>
+
+            <!-- Normal nav for lg and up -->
+            <div class="d-none d-lg-block">
               <nav class="main-nav">
                 <a href="./about.html" class="nav-link">About Us</a>
                 <span class="nav-separator">></span>
                 <a href="./service.html" class="nav-link">Our Services</a>
                 <span class="nav-separator">></span>
-                <a href="#" class="nav-link">Marketplace</a>
+                <a href="./market-place.html" class="nav-link">Marketplace</a>
                 <span class="nav-separator">></span>
                 <a href="./join.html" class="nav-link">Join Us</a>
               </nav>
             </div>
+
             <div class="flex-center gap-3">
               <div class="cart-icon">
-                <img src="./assets/img/cart.svg" alt="" srcset="" />
+                <img src="./assets/img/cart.svg" alt="" />
               </div>
               <a href="./contact.html" class="btn-gradient">Contact Us</a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Offcanvas Drawer -->
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="mobileMenu"
+        aria-labelledby="mobileMenuLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="mobileMenuLabel">Mobile Repair</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <nav class="main-nav d-flex flex-column gap-3 h-100">
+            <a href="./about.html" class="nav-link">About Us</a>
+            <a href="./service.html" class="nav-link">Our Services</a>
+            <a href="./market-place.html" class="nav-link">Marketplace</a>
+            <a href="./join.html" class="nav-link">Join Us</a>
+            <div class="mt-auto">
+              <hr />
+              <a href="./contact.html" class="btn-gradient w-100 text-center"
+                >Contact Us</a
+              >
+            </div>
+          </nav>
         </div>
       </div>
     </header>
@@ -313,7 +360,7 @@
                 </div>
 
                 <div class="order-steps mt-4">
-                  <div class="order-arrival-date mb-4">
+                  <div class="order-arrival-date mb-4 fs-14 fw-500">
                     Order expected arrival
                     <span class="fw-600 text-heading">23 Jan, 2021</span>
                   </div>

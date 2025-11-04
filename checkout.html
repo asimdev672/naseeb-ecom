@@ -36,7 +36,7 @@
     <!-- Header Section Start -->
     <header class="header-section">
       <!-- Top Row -->
-      <div class="header-top">
+      <div class="header-top d-none d-md-block">
         <div class="container">
           <div class="d-flex align-items-center justify-content-between">
             <div>
@@ -75,25 +75,72 @@
       <div class="header-bottom">
         <div class="container">
           <div class="flex-between">
-            <div></div>
-            <div class="">
+            <div class="flex-center gap-2">
+              <!-- Hamburger Button (visible on mobile) -->
+              <button
+                class="navbar-toggler d-block d-lg-none"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu"
+                aria-controls="mobileMenu"
+              >
+                <i class="bi bi-list fs-4"></i>
+              </button>
+              <h6 class="mb-0">Mobile Repair</h6>
+            </div>
+
+            <!-- Normal nav for lg and up -->
+            <div class="d-none d-lg-block">
               <nav class="main-nav">
                 <a href="./about.html" class="nav-link">About Us</a>
                 <span class="nav-separator">></span>
                 <a href="./service.html" class="nav-link">Our Services</a>
                 <span class="nav-separator">></span>
-                <a href="#" class="nav-link">Marketplace</a>
+                <a href="./market-place.html" class="nav-link">Marketplace</a>
                 <span class="nav-separator">></span>
                 <a href="./join.html" class="nav-link">Join Us</a>
               </nav>
             </div>
+
             <div class="flex-center gap-3">
               <div class="cart-icon">
-                <img src="./assets/img/cart.svg" alt="" srcset="" />
+                <img src="./assets/img/cart.svg" alt="" />
               </div>
               <a href="./contact.html" class="btn-gradient">Contact Us</a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Offcanvas Drawer -->
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="mobileMenu"
+        aria-labelledby="mobileMenuLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="mobileMenuLabel">Mobile Repair</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <nav class="main-nav d-flex flex-column gap-3 h-100">
+            <a href="./about.html" class="nav-link">About Us</a>
+            <a href="./service.html" class="nav-link">Our Services</a>
+            <a href="./market-place.html" class="nav-link">Marketplace</a>
+            <a href="./join.html" class="nav-link">Join Us</a>
+            <div class="mt-auto">
+              <hr />
+              <a href="./contact.html" class="btn-gradient w-100 text-center"
+                >Contact Us</a
+              >
+            </div>
+          </nav>
         </div>
       </div>
     </header>
@@ -245,7 +292,7 @@
             <h3 class="fw-500 fs-18">Billing Information</h3>
             <form action="" class="billing-form">
               <div class="row">
-                <div class="col-4 mb-3">
+                <div class="col-6 col-md-4 mb-3">
                   <label for="" class="form-label">User name</label>
                   <input
                     type="text"
@@ -255,7 +302,7 @@
                     id=""
                   />
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-6 col-md-4 mb-3">
                   <label for="" class="form-label">Last name</label>
                   <input
                     type="text"
@@ -265,7 +312,7 @@
                     id=""
                   />
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-6 col-md-4 mb-3">
                   <label for="" class="form-label"
                     >Company Name <span>(Optional)</span></label
                   >
@@ -287,7 +334,7 @@
                     id=""
                   />
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-6 col-md-3 mb-3">
                   <label for="" class="form-label">Country</label>
                   <select name="" id="" class="form-input">
                     <option value="">Select...</option>
@@ -295,7 +342,7 @@
                     <option value="">Select 2</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-6 col-md-3 mb-3">
                   <label for="" class="form-label">Region/State</label>
                   <select name="" id="" class="form-input">
                     <option value="">Select...</option>
@@ -303,7 +350,7 @@
                     <option value="">Select 2</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-6 col-md-3 mb-3">
                   <label for="" class="form-label">City</label>
                   <select name="" id="" class="form-input">
                     <option value="">Select...</option>
@@ -311,7 +358,7 @@
                     <option value="">Select 2</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-6 col-md-3 mb-3">
                   <label for="" class="form-label">Zip Code</label>
                   <input
                     type="text"
@@ -361,14 +408,14 @@
                 <h3 class="fw-500 fs-18 p-3">Payment Option</h3>
                 <hr class="mt-0" />
                 <div class="p-3">
-                  <div class="row text-center gx-0 border-bottom mb-3">
+                  <div class="row text-center border-bottom mb-3">
                     <div class="col">
-                      <div class="py-3 border-end">
+                      <div
+                        class="py-3 flex-center flex-column gap-2 border-end"
+                      >
                         <img
                           src="./assets/img/CurrencyDollar.svg"
                           alt="Cash on Delivery"
-                          width="32"
-                          class="mb-2"
                         />
                         <label class="form-label fw-500 w-100"
                           >Cash on Delivery</label
@@ -376,67 +423,56 @@
                         <input
                           type="radio"
                           name="payment"
-                          class="custom-radio mt-2"
+                          class="custom-radio"
                         />
                       </div>
                     </div>
                     <div class="col">
-                      <div class="py-3 border-end">
-                        <img
-                          src="./assets/img/venmo.svg"
-                          alt="Venmo"
-                          width="32"
-                          class="mb-2"
-                        />
+                      <div
+                        class="py-3 flex-center flex-column gap-2 border-end"
+                      >
+                        <img src="./assets/img/venmo.svg" alt="Venmo" />
                         <label class="form-label fw-500 w-100">Venmo</label>
                         <input
                           type="radio"
                           name="payment"
-                          class="custom-radio mt-2"
+                          class="custom-radio"
                         />
                       </div>
                     </div>
                     <div class="col">
-                      <div class="py-3 border-end">
-                        <img
-                          src="./assets/img/paypal.svg"
-                          alt="Paypal"
-                          width="32"
-                          class="mb-2"
-                        />
+                      <div
+                        class="py-3 flex-center flex-column gap-2 border-end"
+                      >
+                        <img src="./assets/img/paypal.svg" alt="Paypal" />
                         <label class="form-label fw-500 w-100">Paypal</label>
                         <input
                           type="radio"
                           name="payment"
-                          class="custom-radio mt-2"
+                          class="custom-radio"
                         />
                       </div>
                     </div>
                     <div class="col">
-                      <div class="py-3 border-end">
-                        <img
-                          src="./assets/img/amazon.svg"
-                          alt="Amazon Pay"
-                          width="32"
-                          class="mb-2"
-                        />
+                      <div
+                        class="py-3 flex-center flex-column gap-2 border-end"
+                      >
+                        <img src="./assets/img/amazon.svg" alt="Amazon Pay" />
                         <label class="form-label fw-500 w-100"
                           >Amazon Pay</label
                         >
                         <input
                           type="radio"
                           name="payment"
-                          class="custom-radio mt-2"
+                          class="custom-radio"
                         />
                       </div>
                     </div>
                     <div class="col">
-                      <div class="py-3">
+                      <div class="flex-center flex-column gap-2 py-3">
                         <img
                           src="./assets/img/CreditCard.svg"
                           alt="Debit/Credit Card"
-                          width="32"
-                          class="mb-2"
                         />
                         <label class="form-label fw-500 w-100"
                           >Debit/Credit Card</label
@@ -444,7 +480,7 @@
                         <input
                           type="radio"
                           name="payment"
-                          class="custom-radio mt-2"
+                          class="custom-radio"
                           checked
                         />
                       </div>

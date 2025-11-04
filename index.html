@@ -36,7 +36,7 @@
     <!-- Header Section Start -->
     <header class="header-section">
       <!-- Top Row -->
-      <div class="header-top">
+      <div class="header-top d-none d-md-block">
         <div class="container">
           <div class="d-flex align-items-center justify-content-between">
             <div>
@@ -75,9 +75,22 @@
       <div class="header-bottom">
         <div class="container">
           <div class="flex-between">
-            <h6 class="mb-0">Mobile Repair</h6>
+            <div class="flex-center gap-2">
+              <!-- Hamburger Button (visible on mobile) -->
+              <button
+                class="navbar-toggler d-block d-lg-none"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu"
+                aria-controls="mobileMenu"
+              >
+                <i class="bi bi-list fs-4"></i>
+              </button>
+              <h6 class="mb-0">Mobile Repair</h6>
+            </div>
 
-            <div class="">
+            <!-- Normal nav for lg and up -->
+            <div class="d-none d-lg-block">
               <nav class="main-nav">
                 <a href="./about.html" class="nav-link">About Us</a>
                 <span class="nav-separator">></span>
@@ -88,13 +101,46 @@
                 <a href="./join.html" class="nav-link">Join Us</a>
               </nav>
             </div>
+
             <div class="flex-center gap-3">
               <div class="cart-icon">
-                <img src="./assets/img/cart.svg" alt="" srcset="" />
+                <img src="./assets/img/cart.svg" alt="" />
               </div>
               <a href="./contact.html" class="btn-gradient">Contact Us</a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Offcanvas Drawer -->
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="mobileMenu"
+        aria-labelledby="mobileMenuLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="mobileMenuLabel">Mobile Repair</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <nav class="main-nav d-flex flex-column gap-3 h-100">
+            <a href="./about.html" class="nav-link">About Us</a>
+            <a href="./service.html" class="nav-link">Our Services</a>
+            <a href="./market-place.html" class="nav-link">Marketplace</a>
+            <a href="./join.html" class="nav-link">Join Us</a>
+            <div class="mt-auto">
+              <hr />
+              <a href="./contact.html" class="btn-gradient w-100 text-center"
+                >Contact Us</a
+              >
+            </div>
+          </nav>
         </div>
       </div>
     </header>
@@ -102,7 +148,7 @@
 
     <!-- Hero Section Start -->
     <section class="hero-section mb-custom d-flex align-items-center">
-      <div class="container">
+      <div class="container text-center text-md-start">
         <span
           class="badge rounded-pill bg-light fw-semibold px-3 py-2 mb-3 text-primary-custom text-uppercase"
         >
@@ -131,7 +177,7 @@
             <h1 class="fs-40 pt-4">
               Driven By Quality, Focused On Customer Satisfaction
             </h1>
-            <p class="py-3">
+            <p class="py-3 fs-16">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s,
@@ -146,7 +192,7 @@
               <div class="vertical-line"></div>
               <div>
                 <h6 class="fs-24">Comprehensive Warranty</h6>
-                <p>
+                <p class="fs-16">
                   dummy text <br />
                   Lorem Ipsum is simply <br />
                   dummy text
@@ -200,14 +246,14 @@
     <section class="mb-custom">
       <div class="container">
         <div class="row mb-custom">
-          <div class="col-6">
+          <div class="col-md-6">
             <button class="btn-gradient-outline">WHAT WE OFFER</button>
             <h1 class="fs-40 pt-4">
               Driven By Quality, Focused On Customer Satisfaction
             </h1>
           </div>
-          <div class="col-6">
-            <p class="pb-3">
+          <div class="col-md-6">
+            <p class="pb-3 fs-16">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s,
@@ -215,12 +261,12 @@
             <button class="btn-gradient">Contact Us</button>
           </div>
         </div>
-        <div class="row row-cols-lg-3 row-cols-2 g-3">
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-3">
           <div class="col">
             <div class="repair-service-card">
               <img src="./assets/img/service-img-1.svg" alt="" />
               <h3 class="fs-24">Smartphone Repair</h3>
-              <p>
+              <p class="fs-16">
                 Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text
               </p>
             </div>
@@ -229,7 +275,7 @@
             <div class="repair-service-card">
               <img src="./assets/img/service-img-2.svg" alt="" />
               <h3 class="fs-24">Laptop Repair</h3>
-              <p>
+              <p class="fs-16">
                 Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text
               </p>
             </div>
@@ -238,7 +284,7 @@
             <div class="repair-service-card">
               <img src="./assets/img/service-img-3.svg" alt="" />
               <h3 class="fs-24">Tablet Repair</h3>
-              <p>
+              <p class="fs-16">
                 Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text
               </p>
             </div>
@@ -247,7 +293,7 @@
             <div class="repair-service-card">
               <img src="./assets/img/service-img-4.svg" alt="" />
               <h3 class="fs-24">Console Repair</h3>
-              <p>
+              <p class="fs-16">
                 Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text
               </p>
             </div>
@@ -256,7 +302,7 @@
             <div class="repair-service-card">
               <img src="./assets/img/service-img-5.svg" alt="" />
               <h3 class="fs-24">Gaming Pc Repair</h3>
-              <p>
+              <p class="fs-16">
                 Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text
               </p>
             </div>
@@ -265,7 +311,7 @@
             <div class="repair-service-card">
               <img src="./assets/img/service-img-6.svg" alt="" />
               <h3 class="fs-24">Software Optimization</h3>
-              <p>
+              <p class="fs-16">
                 Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text
               </p>
             </div>
@@ -279,10 +325,10 @@
       <div class="container">
         <button class="btn-gradient-outline mb-4">Hot Selling</button>
 
-        <div class="flex-between mb-5">
+        <div class="flex-between flex-wrap flex-md-nowrap mb-5">
           <h3 class="fs-40">Trending Phones</h3>
           <ul
-            class="nav nav-pills justify-content-end mb-3"
+            class="nav nav-pills justify-content-between justify-content-md-end mb-3 gap-3 mt-md-0 mt-3"
             id="pills-tab"
             role="tablist"
           >
@@ -352,7 +398,7 @@
             aria-labelledby="pills-all-tab"
           >
             <div
-              class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-2"
+              class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-3"
             >
               <div class="col">
                 <div class="product-card h-100 position-relative">
@@ -577,7 +623,7 @@
     </section>
 
     <!-- quality repairs section -->
-    <section class="quality-repair-section mb-custom">
+    <section class="quality-repair-section mb-custom py-5 py-sm-0">
       <div
         class="container d-flex flex-column align-items-center text-center gap-lg-5 gap-4"
       >
@@ -614,7 +660,7 @@
       <div class="container text-center mb-custom">
         <button class="btn-gradient-outline">WHY CHOOSE US</button>
         <h3 class="my-4 fs-40">Fast Repairs, No Hassle</h3>
-        <div class="row row-cols-xl-4 row-cols-md-2 row-cols-1">
+        <div class="row row-cols-xl-4 row-cols-md-2 row-cols-1 g-3">
           <div class="col">
             <div class="choose-card">
               <img src="./assets/img/choose-1.svg" alt="img" />
@@ -648,10 +694,10 @@
       <div class="container">
         <button class="btn-gradient-outline mb-4">Accessories</button>
 
-        <div class="flex-between mb-5">
+        <div class="flex-between flex-wrap flex-md-nowrap mb-5">
           <h3 class="fs-40">Must Have Accessories</h3>
           <ul
-            class="nav nav-pills justify-content-end mb-3"
+            class="nav nav-pills justify-content-between justify-content-md-end mb-3 gap-3 mt-md-0 mt-3"
             id="pills-tab"
             role="tablist"
           >
@@ -721,7 +767,7 @@
             aria-labelledby="pills-chargers-tab"
           >
             <div
-              class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-2"
+              class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-3"
             >
               <div class="col">
                 <div class="product-card h-100 position-relative">

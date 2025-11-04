@@ -4,7 +4,7 @@
     color: var(--muted);
     border-radius: 38px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: clamp(13.5px, 1.2vw, 16px);
     padding: 5px 20px;
     margin-right: 0.5rem;
     transition: all 0.2s ease;
