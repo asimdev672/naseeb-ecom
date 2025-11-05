@@ -461,6 +461,34 @@
   background: #e4e4e4;
   padding: 10px;
   margin-bottom: 20px;
+
+  @media (max-width: 568px) {
+    font-size: 14px;
+  }
+}
+
+.section-details {
+  label {
+    font-weight: 400;
+    font-size: clamp(18px, 1.4vw, 20px);
+  }
+  p {
+    font-size: clamp(18px, 1.4vw, 20px);
+    font-weight: 500;
+  }
+
+  @media (max-width: 568px) {
+    label,
+    p {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 768px) {
+    label,
+    p {
+      font-size: 16px;
+    }
+  }
 }
 
 .total-cost-section {
